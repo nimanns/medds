@@ -36,7 +36,7 @@ async function schedulePushNotification(times: Times, name: string) {
         hour: times[i].hour,
         minute: times[i].minute,
         repeats: true,
-      };
+      } as Notifications.DailyTriggerInput;
     } else {
       trigger = {
         channelId: "default",
@@ -44,7 +44,7 @@ async function schedulePushNotification(times: Times, name: string) {
         hour: times[i].hour,
         minute: times[i].minute,
         repeats: true,
-      };
+      } as Notifications.WeeklyTriggerInput;
     }
     const id = await Notifications.scheduleNotificationAsync({
       content: {
